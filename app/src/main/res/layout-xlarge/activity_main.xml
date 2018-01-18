@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:scrollbarSize="100dp"
+        android:scrollbarStyle="outsideOverlay">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btn_favorite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#04667A"
+                    android:onClick="open_favoriteList"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/favoriteList"
+                    android:textColor="@color/offText"
+                    android:textSize="@dimen/font_size" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/favorite_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Image for favorite selection"
+                android:scaleType="fitCenter"
+                android:src="@drawable/white_heart_off_white" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true">
+
+                <Button
+                    android:id="@+id/btn_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#096d8f"
+                    android:onClick="open_mainList"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/Home"
+                    android:textColor="@color/product_list_item_bg"
+                    android:textSize="@dimen/font_size" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/main_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="false"
+                android:contentDescription="Image for amin selection"
+                android:scaleType="center"
+                android:src="@drawable/exclamation_mark_off_white" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

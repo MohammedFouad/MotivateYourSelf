@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">  أيقظ قدراتك </string>
+    <string name="action_sharing">مشاركة</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="favorites">المفضلة</string>
+    <string name="Home">كل الأقوال</string>
+    <string name="favoriteList">المفضلة</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="add_favr">تمت الإضافة إلى الإقتباسات المفضلة</string>
+    <string name="remove_favr">تمت الإزالة من الإقتباسات المفضلة</string>
+    <string name="no_favorites_items">لا توجد أى اقتباسات مفضلة</string>
+    <string name="no_favorites_msg">اضغط مطولا على أى عنصر للإضافة فى المفضلة</string>
+    <string name="favorites_remove_msg">Long press on item to remove from favorites.</string>
+    <string name="share_message"> تطبيق ممتاز للتحفيز حمل الآن من على جوجل بلاى </string>
+</resources>

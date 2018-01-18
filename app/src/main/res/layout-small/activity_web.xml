@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_xlarge_portrait"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/webText"
+            android:textColor="@android:color/white"
+            android:id="@+id/web_text"
+            android:textSize="@dimen/font_size_small_medium"
+           android:textStyle="bold" />
+
+        <WebView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/webView1"
+            android:layout_weight="1"
+            android:foregroundGravity="center" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_weight="0"
+android:background="@color/transparent"
+            android:alpha="1.5">
+
+            <ImageButton
+                android:text="Back"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_back"
+                android:layout_weight="1"
+                android:onClick="btn_next"
+                android:src="@drawable/next"
+                android:scaleType="center"
+                android:background="@color/transparent"/>
+
+            <Button
+                android:id="@+id/btn_Share"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_menu_share"
+                android:onClick="btn_Share" />
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/web_favorite"
+                android:onClick="btn_favorite"
+                android:layout_weight="1"
+                android:background="@color/transparent"/>
+
+
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_next"
+                android:onClick="btn_back"
+                android:src="@drawable/back"
+                 android:scaleType="center"
+                android:layout_weight="1"
+                android:background="@color/transparent"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

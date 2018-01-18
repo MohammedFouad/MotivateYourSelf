@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1a9c39</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!--
+            copied from sharedPreferencesFavorites App from the site
+        -->
+
+    <color name="transparent">#00000000</color>
+    <color name="product_list_item_bg">#ffffff</color>
+    <color name="view_divider_color">#BABABA</color>
+    <color name="home_button">#3facff</color>
+    <color name="favorites_button">#3facff</color>
+    <color name="webText">#0A6C8E</color>
+    <color name="offText">#80B2BF</color>
+
+</resources>
