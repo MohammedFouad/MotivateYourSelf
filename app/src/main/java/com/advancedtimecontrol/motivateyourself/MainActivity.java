@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AdView mAdView;
 
-    private InterstitialAd mInterstitialAd;
+   // private InterstitialAd mInterstitialAd;
 
 
     @Override
@@ -49,18 +49,16 @@ public class MainActivity extends AppCompatActivity {
         OneSignal.startInit(this).init();
         setContentView(R.layout.activity_main);
 
-
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
 
         mAdView.loadAd(adRequest);
-
+/*
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.setAdUnitId(this.getResources().getString(R.string.admob_interstitial_id));
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
-
+*/
 
         button_main = (Button) findViewById(R.id.btn_main);
         button_fav = (Button) findViewById(R.id.btn_favorite);
