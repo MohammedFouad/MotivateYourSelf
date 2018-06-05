@@ -168,7 +168,7 @@ public class Webhtml extends AppCompatActivity {
     // pageNum is the variable for html file numbers, they are 125 pages now
     public void btn_next(View view) {
 
-        if (pageNum < 16) {
+        if (pageNum < 19) {
             nextButtonPressedTwice = nextButtonPressedTwice+1;
 
             // check to see if the user hits the next
@@ -178,7 +178,7 @@ public class Webhtml extends AppCompatActivity {
                         if (mInterstitialAd.isLoaded()) {
                             mInterstitialAd.show();
 
-                            Toast.makeText(this, " inside ad method", Toast.LENGTH_LONG).show();
+                           // Toast.makeText(this, " inside ad method", Toast.LENGTH_LONG).show();
                         } else {
                             Log.d("TAG", "The interstitial wasn't loaded yet.  next button");
                         }
@@ -191,7 +191,7 @@ public class Webhtml extends AppCompatActivity {
                     }
                 });
 
-                Toast.makeText(this, "even number " + nextButtonPressedTwice,Toast.LENGTH_LONG).show();
+               // Toast.makeText(this, "even number " + nextButtonPressedTwice,Toast.LENGTH_LONG).show();
             }
                 pageNum++;
                 webView.loadUrl("file:///android_asset/html/page" + pageNum + ".html");
@@ -219,7 +219,7 @@ public class Webhtml extends AppCompatActivity {
                 if (mInterstitialAd.isLoaded()) {
                     mInterstitialAd.show();
 
-                    Toast.makeText(this, " inside ad method", Toast.LENGTH_LONG).show();
+                  //  Toast.makeText(this, " inside ad method", Toast.LENGTH_LONG).show();
                 } else {
                     Log.d("TAG", "The interstitial wasn't loaded yet.  back button");
                 }
@@ -233,7 +233,7 @@ public class Webhtml extends AppCompatActivity {
                 });
 
 
-                Toast.makeText(this, "even number " + backButtonPressedTwice,Toast.LENGTH_LONG).show();
+               // Toast.makeText(this, "even number " + backButtonPressedTwice,Toast.LENGTH_LONG).show();
             }
             pageNum--;
             webView.loadUrl("file:///android_asset/html/page" + pageNum + ".html");
@@ -297,6 +297,15 @@ public class Webhtml extends AppCompatActivity {
         }
         if (pageNum == 16) {
             titleText.setText(" ليس خطؤك أن تٌُولد فقيرا و لكنه بالتأكيد خطؤك أن تموت فقيرا معدما ");
+        }
+        if (pageNum == 17) {
+            titleText.setText("عش حياتك كل يوم كما لو كنت ستصعد جبلا . و انظر بين الفينة والاخرى إلى القمة حتى لا تنس هدفك ، و لكن دون إضاعة الفرصة لرؤية المناظر الرائعة في كل مرحلة ");
+        }
+        if (pageNum == 18) {
+            titleText.setText("خطوة واحدة لن تعبد طريقا على الارض , كما ان فكرة واحدة لن تغير شيئا في العقل , تتابع الخطوات ستعبد الطريق كما أن الكثير من التفكير سيصنع المستحيل الذي سيغير حياتنا ");
+        }
+        if (pageNum == 19) {
+            titleText.setText("الحياه مليئة بالحجارة فلا تتعثر بها ، بل اجمعها و ابن بها سلماً تصعد به نحو النجاح ");
         }
 
 

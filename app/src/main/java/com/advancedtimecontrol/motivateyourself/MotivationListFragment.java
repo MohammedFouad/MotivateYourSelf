@@ -80,6 +80,9 @@ public class MotivationListFragment extends Fragment implements
         MotivationStatement motivationStatement15 = new MotivationStatement(14, "نحن نسقط لكي ننهض، ونهزم في المعارك لنحقق نصراً أروع. تماما كما ننام لكي نصحوا أكثر قوةً ونشاطاً");
         MotivationStatement motivationStatement16 = new MotivationStatement(15, "المنسحب لا يفوز أبدا و الفائز لا ينسحب مهمها كلفه الأمر");
         MotivationStatement motivationStatement17 = new MotivationStatement(16, "ليس خطؤك أن تٌُولد فقيرا و لكنه بالتأكيد خطؤك أن تموت فقيرا معدما");
+        MotivationStatement motivationStatement18 = new MotivationStatement(17, "عش حياتك كل يوم كما لو كنت ستصعد جبلا . و انظر بين الفينة والاخرى إلى القمة حتى لا تنس هدفك ، و لكن دون إضاعة الفرصة لرؤية المناظر الرائعة في كل مرحلة ");
+        MotivationStatement motivationStatement19 = new MotivationStatement(18, "خطوة واحدة لن تعبد طريقا على الارض , كما ان فكرة واحدة لن تغير شيئا في العقل , تتابع الخطوات ستعبد الطريق كما أن الكثير من التفكير سيصنع المستحيل الذي سيغير حياتنا ");
+        MotivationStatement motivationStatement20 = new MotivationStatement(19, "الحياه مليئة بالحجارة فلا تتعثر بها ، بل اجمعها و ابن بها سلماً تصعد به نحو النجاح" );
 
        motivationStatements = new ArrayList<MotivationStatement>();
        motivationStatements.add(motivationStatement1);
@@ -99,6 +102,10 @@ public class MotivationListFragment extends Fragment implements
         motivationStatements.add(motivationStatement15);
         motivationStatements.add(motivationStatement16);
         motivationStatements.add(motivationStatement17);
+        motivationStatements.add(motivationStatement18);
+        motivationStatements.add(motivationStatement19);
+        motivationStatements.add(motivationStatement20);
+
     }
 
     private void findViewsById(View view) {
