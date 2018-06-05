@@ -15,4 +15,21 @@
     <string name="no_favorites_msg">اضغط مطولا على أى عنصر للإضافة فى المفضلة</string>
     <string name="favorites_remove_msg">Long press on item to remove from favorites.</string>
     <string name="share_message"> تطبيق ممتاز للتحفيز حمل الآن من على جوجل بلاى </string>
+
+<!-- add that will replace actual ad
+
+    <string name="admob_banner_id">ca-app-pub-3668432383217048~9098774415</string>
+
+ <string name="admob_interstitial_id">ca-app-pub-3668432383217048/1435906813</string>  Change AdMob Interstitial Id -->
+
+-->
+    <!-- Test ad banner id-->
+    <string name="admob_banner_id">ca-app-pub-3940256099942544/6300978111</string>
+
+    <!-- Test interstitial ad id-->
+    <string name="admob_interstitial_id">ca-app-pub-3940256099942544/1033173712</string> <!-- Change AdMob Interstitial Id -->
+
+
+
+
 </resources>
