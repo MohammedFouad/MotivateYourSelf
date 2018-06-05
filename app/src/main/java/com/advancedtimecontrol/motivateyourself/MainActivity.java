@@ -15,6 +15,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 import com.onesignal.OneSignal;
 
 import java.io.BufferedReader;
@@ -34,11 +38,30 @@ public class MainActivity extends AppCompatActivity {
     List<MotivationStatement> favorites2;
     SharedPreference sharedPreference;
 
+    private AdView mAdView;
+
+    private InterstitialAd mInterstitialAd;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         OneSignal.startInit(this).init();
         setContentView(R.layout.activity_main);
+
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+
+        mAdView.loadAd(adRequest);
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+
         button_main = (Button) findViewById(R.id.btn_main);
         button_fav = (Button) findViewById(R.id.btn_favorite);
         buttonFavorite = (ImageView) findViewById(R.id.favorite_image);

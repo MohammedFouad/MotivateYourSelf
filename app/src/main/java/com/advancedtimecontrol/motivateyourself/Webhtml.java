@@ -1,16 +1,23 @@
 package com.advancedtimecontrol.motivateyourself;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -31,7 +38,13 @@ public class Webhtml extends AppCompatActivity {
     MotivationListFragment motivationListFragment;
     TextView titleText;
 
+   ImageButton nextButton;
+    ImageButton backButton;
 
+    int nextButtonPressedTwice = 0;
+    int backButtonPressedTwice = 0;
+
+    private InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +57,17 @@ public class Webhtml extends AppCompatActivity {
         webView.getSettings().setBuiltInZoomControls(true);
         webView.loadUrl("file:///android_asset/html/page" + pageNum + ".html");
 
+        nextButton = findViewById(R.id.btn_next);
+        backButton = findViewById(R.id.btn_back);
+
         sharedPreference = new SharedPreference();
         titleText = (TextView) findViewById(R.id.web_text);
         webView.setBackgroundColor(Color.TRANSPARENT);
+
+        // Interstitial ad to be displayed when user clicks next buttons
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(this.getResources().getString(R.string.admob_interstitial_id));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
 
         motivationListFragment = new MotivationListFragment();
@@ -55,10 +76,6 @@ public class Webhtml extends AppCompatActivity {
         showTitle();
 
     }
-
-
-
-
 
     // add or remove item to or from favorites from web activity
     public void btn_favorite(View view) {
@@ -152,13 +169,37 @@ public class Webhtml extends AppCompatActivity {
     public void btn_next(View view) {
 
         if (pageNum < 16) {
-            pageNum++;
-            webView.loadUrl("file:///android_asset/html/page" + pageNum + ".html");
-        } else {
-            // back to home, you have reached to the last statement
-            Toast.makeText(this, " لا توجد صفحات أخرى ", Toast.LENGTH_SHORT).show();
-            finish();
-        }
+            nextButtonPressedTwice = nextButtonPressedTwice+1;
+
+            // check to see if the user hits the next
+            //button twice to display interestial ad
+            if (nextButtonPressedTwice % 2 == 0){
+
+                        if (mInterstitialAd.isLoaded()) {
+                            mInterstitialAd.show();
+
+                            Toast.makeText(this, " inside ad method", Toast.LENGTH_LONG).show();
+                        } else {
+                            Log.d("TAG", "The interstitial wasn't loaded yet.  next button");
+                        }
+
+                mInterstitialAd.setAdListener(new AdListener() {
+                    @Override
+                    public void onAdClosed() {
+                        // Load the next interstitial.
+                        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                    }
+                });
+
+                Toast.makeText(this, "even number " + nextButtonPressedTwice,Toast.LENGTH_LONG).show();
+            }
+                pageNum++;
+                webView.loadUrl("file:///android_asset/html/page" + pageNum + ".html");
+            } else {
+                    // back to home, you have reached to the last statement
+                    Toast.makeText(this, " لا توجد صفحات أخرى ", Toast.LENGTH_SHORT).show();
+                finish();
+            }
         webImage();
         showTitle();
     }
@@ -168,6 +209,32 @@ public class Webhtml extends AppCompatActivity {
     public void btn_back(View view) {
 
         if (pageNum > 0) {
+
+            backButtonPressedTwice = backButtonPressedTwice + 1;
+
+            // check to see if the user hits the next
+            //button twice to display interestial ad
+            if (backButtonPressedTwice % 2 == 0){
+
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+
+                    Toast.makeText(this, " inside ad method", Toast.LENGTH_LONG).show();
+                } else {
+                    Log.d("TAG", "The interstitial wasn't loaded yet.  back button");
+                }
+
+                mInterstitialAd.setAdListener(new AdListener() {
+                    @Override
+                    public void onAdClosed() {
+                        // Load the next interstitial.
+                        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                    }
+                });
+
+
+                Toast.makeText(this, "even number " + backButtonPressedTwice,Toast.LENGTH_LONG).show();
+            }
             pageNum--;
             webView.loadUrl("file:///android_asset/html/page" + pageNum + ".html");
         } else {
